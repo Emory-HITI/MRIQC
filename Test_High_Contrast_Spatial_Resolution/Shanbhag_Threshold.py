@@ -42,7 +42,7 @@ def Shanbhag(hist):
     ### determine the last non zero bin
     last_bin=255
     for ih in range(255,first_bin-1,-1):
-        if (abs(p2[ih])<2.220446049250313E-16):
+        if (abs(p2[ih])>2.220446049250313E-16):
             last_bin=ih
             break
    ## calculate the total entropy each gray level
