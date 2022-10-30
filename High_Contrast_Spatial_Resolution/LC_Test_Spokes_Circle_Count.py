@@ -45,6 +45,7 @@ def gammaCorrection(src, gamma):
 
 
 bicubic_image = cv2.imread(r"D:\MRI_phantom\Slices\Slice_10_cropped\bicubic_Slice10_3.png",0) ###INPUT THE IMAGE
+dup_image=bicubic_image.copy()
 npimage=np.asarray(bicubic_image)
 if (math.floor(np.average(bicubic_image))<100):
     result_3 = unsharp_mask(npimage, radius=30, amount=3)
@@ -261,4 +262,39 @@ sheet1.write(7,1,Number_spokes3)
 sheet1.write(8,1,Number_spokes2)
 sheet1.write(9,1,Number_spokes1)
 sheet1.write(10,1,Number_spokes0)
+
+
+##################
+##################
+### drawing the contour on the DUPLICATE image
+def drawContour(x_cord,y_cord,theta):
+    height=76
+    width=23
+    rect=((x_cord,y_cord),(width,height),360-theta)
+    box = cv2.boxPoints(rect)
+    box = np.int0(box)
+    cv2.drawContours(dup_image,[box],0,(0,0,255),2) ## dup image is duplicate of the image being created
+    
+def Contour(theta):
+    rad_theta=np.radians(theta)
+    xc1,yc1=rotate_around_point((89,40),rad_theta,(dup_image.shape[0]/2,dup_image.shape[1]/2))
+    if (math.floor(xc1)>=dup_image.shape[1]):
+        xc1=xc1-1
+    if (math.floor(yc1)>=dup_image.shape[0]):
+        yc1=yc1-1
+    
+    ## here values 89,40 correspond to the center value of the box being drawn 
+    drawContour(math.floor(xc1),math.floor(yc1),theta)    
+    
+###Drawing the contour on duplicate image
+    
+Numbers_spokes_list=[Number_spokes0,Number_spokes1,Number_spokes2,Number_spokes3,Number_spokes4,Number_spokes5,Number_spokes6,Number_spokes7,Number_spokes8,Number_spokes9]
+for i in range(len(Numbers_spokes_list)):
+    if Numbers_spokes_list[i]==3:
+        Contour(List_1[i])
+                   
+### Displaying the Contour image
+cv2.imshow("Contour_image",dup_image)
+cv2.waitKey()
+cv2.destroyAllWindows()
 
