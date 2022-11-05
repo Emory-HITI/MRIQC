@@ -36,7 +36,7 @@ To deploy this project run
 
 ```bash
   $ python3 Dicom_To_Png.py
-  $ python3 Localization_Low_Contrast_Object_Detectability.py.py
+  $ python3 Localization_Low_Contrast_Object_Detectability.py
   $ python3 Spokes_Crop_All_Slices.py
   $ python3 LC_Test_Spokes_Circle_Count.py
 ```
