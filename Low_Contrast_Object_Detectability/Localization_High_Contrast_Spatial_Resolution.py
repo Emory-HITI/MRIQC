@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+# In[ ]:
 
 
 ##implement the IJisodata algorithm
@@ -93,7 +93,8 @@ def default_thresh(hist):
 import numpy as np
 import cv2
 from PIL import Image, ImageDraw
-im1=cv2.imread(r"D:\MRI_phantom\Slices\Slice11\Slice11_4.png",0) ## read the image
+#im1=cv2.imread(r"D:\MRI_phantom\Slices\Slice11\Slice11_4.png",0) ## read the image
+im1=scaled_image
 hist=cv2.calcHist([im1],[0],None,[256],[0,256]) ## calculating the histogram of the image
 hist=hist.astype(int)
 thresh_value=default_thresh(hist)
@@ -183,10 +184,4 @@ final_localized_image=im1[min_y:max_y,min_x:max_x]
 cv2.imshow("cropped",final_localized_image)
 cv2.waitKey()
 cv2.destroyAllWindows()
-
-
-# In[ ]:
-
-
-
 
