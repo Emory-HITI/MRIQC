@@ -4,7 +4,6 @@
 # In[ ]:
 
 
-#### The code makes use of Spokes_Crop_All_Slices for Cropping individual Spokes
 import xlwt
 from xlwt import Workbook
 import cv2
@@ -20,7 +19,10 @@ from skimage import data, color
 from skimage.transform import hough_circle, hough_circle_peaks
 from skimage.feature import canny
 from skimage.color import rgb2gray
-import math
+from PIL import Image, ImageFilter
+import matplotlib.pyplot as plt
+from skimage.util import img_as_ubyte
+
 wb = Workbook()
 sheet1 = wb.add_sheet('Sheet 1')
 sheet1.write(0, 1, 'Slice_number')
@@ -44,7 +46,7 @@ def gammaCorrection(src, gamma):
     return cv2.LUT(src, table)
 
 
-bicubic_image = cv2.imread(r"D:\MRI_phantom\Slices\Slice_10_cropped\bicubic_Slice10_3.png",0) ###INPUT THE IMAGE
+#bicubic_image = cv2.imread(r"D:\MRI_phantom\Slices\Slice_10_cropped\bicubic_Slice10_3.png",0) ###INPUT THE IMAGE
 dup_image=bicubic_image.copy()
 npimage=np.asarray(bicubic_image)
 if (math.floor(np.average(bicubic_image))<100):
@@ -138,12 +140,7 @@ def Hough_Circles(image_1,radius_size,canny_thresh):
         center_y=-1
     return(radius,center_x,center_y)
 
-from PIL import Image, ImageFilter
-import numpy as np
-import cv2
-import math
-import matplotlib.pyplot as plt
-from skimage.util import img_as_ubyte
+
 
 
 def circle_hough_detect(img,filter_size,edge_param,radius_size):
@@ -252,16 +249,28 @@ Number_spokes0=cir210(Cropped_0)
 #print(Number_spokes1)
 #print(Number_spokes0)
 
-sheet1.write(1,1,Number_spokes9)
-sheet1.write(2,1,Number_spokes8)
-sheet1.write(3,1,Number_spokes7)
-sheet1.write(4,1,Number_spokes6)
-sheet1.write(5,1,Number_spokes5)
-sheet1.write(6,1,Number_spokes4)
-sheet1.write(7,1,Number_spokes3)
-sheet1.write(8,1,Number_spokes2)
-sheet1.write(9,1,Number_spokes1)
-sheet1.write(10,1,Number_spokes0)
+
+
+Count_list=[Number_spokes0,Number_spokes1,Number_spokes2,Number_spokes3,Number_spokes4,Number_spokes5,Number_spokes6,Number_spokes7,Number_spokes8,Number_spokes9]
+for x in range(len(Count_list)):
+    if (Count_list[x]==3):
+        Count_list[x]=1
+    else:
+        Count_list[x]=0
+
+sheet1.write(1,1,Count_list[9])
+sheet1.write(2,1,Count_list[8])
+sheet1.write(3,1,Count_list[7])
+sheet1.write(4,1,Count_list[6])
+sheet1.write(5,1,Count_list[5])
+sheet1.write(6,1,Count_list[4])
+sheet1.write(7,1,Count_list[3])
+sheet1.write(8,1,Count_list[2])
+sheet1.write(9,1,Count_list[1])
+sheet1.write(10,1,Count_list[0])
+
+
+wb.save('LC_test.xls') 
 
 
 ##################
@@ -273,7 +282,7 @@ def drawContour(x_cord,y_cord,theta):
     rect=((x_cord,y_cord),(width,height),360-theta)
     box = cv2.boxPoints(rect)
     box = np.int0(box)
-    cv2.drawContours(dup_image,[box],0,(0,0,255),2) ## dup image is duplicate of the image being created
+    cv2.drawContours(dup_image,[box],0,(255,255,255),2) ## dup image is duplicate of the image being created
     
 def Contour(theta):
     rad_theta=np.radians(theta)
