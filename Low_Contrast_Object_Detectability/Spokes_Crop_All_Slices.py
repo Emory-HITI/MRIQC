@@ -11,6 +11,7 @@ import math
 ################
 ####### Function to Crop out the spokes from Scaled_Localized Image
 ############
+######## Change the List_1 for each Slice
 def rotate_around_point(point, radians, origin=(0, 0)): ## Rotation Matrix to Crop the spokes at an angle
     x, y = point
     o1, o2 = origin
@@ -38,11 +39,11 @@ def rightleft(image):     ### Function to make finer adjustments After Cropping 
     if (ratio_value>1):
         ## Holes are tilted more towards the right side
         flag=1
-        print(ratio_value-1)
+        #print(ratio_value-1)
         return(abs(1-ratio_value),flag)
     else:
         ###Holes are tilted more towards the left side
-        print(1-ratio_value)
+        #print(1-ratio_value)
         return (abs(1-ratio_value),flag)
     
 def Crop_Angled(image,theta):  ## Cropping at the specified angle
@@ -72,7 +73,7 @@ def Crop_Spoke(image,theta): ## Giving the Final Cropped Spoke
             list_1.append(diff)
             #print(diff)
             for i in range(theta-1,theta-5,-1):
-                print(i)
+                #print(i)
                 (temp_img,difference,dirc)=Crop_Angled(image,i)
                 #print(difference)
                 list_1.append(difference)
@@ -93,7 +94,8 @@ def Crop_Spoke(image,theta): ## Giving the Final Cropped Spoke
     return Cropped_image  
 
 
-bicubic_image = cv2.imread(r"D:\MRI_phantom\Slices\Slice_11_cropped\bicubic_Slice_11_1.png",0) ## input Scaled_localized Slice
+bicubic_image = cv2.resize(final_localized_image,(180,180),interpolation = cv2.INTER_CUBIC) ###bicubic_image
+#bicubic_image = cv2.imread(r"D:\MRI_phantom\Slices\Slice_11_cropped\bicubic_Slice_11_1.png",0) ## input Scaled_localized Slice
 #### Rotation Angles Corresponding to Different Spokes in different Slices
 #######
 List_1=[11,48,85,120,156,191,225,260,297,334] ##corresponding to slice11     
@@ -120,5 +122,4 @@ Hori = np.concatenate((Cropped_0,Cropped_1,Cropped_2,Cropped_3,Cropped_4,Cropped
 cv2.imshow('HORIZONTAL', Hori) 
 cv2.waitKey()
 cv2.destroyAllWindows()
-
 
