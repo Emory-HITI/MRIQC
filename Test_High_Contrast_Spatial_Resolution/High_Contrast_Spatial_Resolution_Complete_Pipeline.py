@@ -9,8 +9,9 @@
 import numpy as np
 import cv2
 import math
-original_slice_img=cv2.imread(r"D:\MRI_phantom\High_spatial_resolution_Slices\Slice1_1.png",0)
-template_image=cv2.imread(r"C:\Users\praroop_2\Desktop\slice1_template.png",0)
+#original_slice_img=cv2.imread(r"D:\MRI_phantom\High_spatial_resolution_Slices\Slice1_1.png",0)
+original_slice_img=scaled_image_1
+template_image=cv2.imread(r"data_HC\slice1_template.png",0)
 
 
 #### Localizing the region of interest
