@@ -68,10 +68,10 @@ else:
 
 ############# Now the Cropping starts
 ### Creating a function
-template_image_9=cv2.imread(r"C:\Users\praroop_2\Desktop\cir_template_10.png",0)
-template_image_8=cv2.imread(r"C:\Users\praroop_2\Desktop\Template\Temp8_enhanced_4.png",0)
-template_image_7=cv2.imread(r"C:\Users\praroop_2\Desktop\Template\Temp7_enhanced.png",0)
-template_image_6=cv2.imread(r"C:\Users\praroop_2\Desktop\Template\Temp6_enhanced_2.png",0)
+template_image_9=cv2.imread(r"data\cir_template_10.png",0)
+template_image_8=cv2.imread(r"data\Temp8_enhanced_4.png",0)
+template_image_7=cv2.imread(r"data\Temp7_enhanced.png",0)
+template_image_6=cv2.imread(r"data\Temp6_enhanced_2.png",0)
 
 
 # GOING FOR SPOKES 9,8,7,6
