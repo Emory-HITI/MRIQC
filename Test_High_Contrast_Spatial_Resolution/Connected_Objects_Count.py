@@ -53,10 +53,6 @@ def flood_fill(i,j,pix_val,image):
     flood_fill(i,j+1,pix_val,image)
     flood_fill(i+1,j,pix_val,image)
         
-    
-input_image=cv2.imread(r"C:\Users\praroop_2\Desktop\mriqc_test_images\mri_row_col\row2.png",0) ## input the image
-num_connected_objects=Connected_Objects_Counts(input_image)
-print("Number of circles are :",num_connected_objects)
 
 
 # In[ ]:
