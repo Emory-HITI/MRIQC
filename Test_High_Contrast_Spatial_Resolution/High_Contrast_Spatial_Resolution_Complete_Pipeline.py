@@ -27,7 +27,7 @@ for i in range(0,w):
     for j in range(0,h):
         blank_image[j,i]=original_slice_img[max_loc[1]+j][max_loc[0]+i]
 ########
-template_image2=cv2.imread(r"C:\Users\praroop_2\Desktop\Template_slice1_array1.png",0)
+template_image2=cv2.imread(r"data_HC\Template_slice1_array1.png",0)
 
 ### calculating the approximate location of 3 arrays
 approx_arr1=np.zeros((template_image.shape[0],template_image.shape[1]//3),np.uint8)

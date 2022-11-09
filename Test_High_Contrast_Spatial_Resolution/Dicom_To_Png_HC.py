@@ -19,5 +19,5 @@ try:
     #cv2.waitKey(0)
     #cv2.destroyAllWindows()
 except:
-    scaled_image_1=cv2.imread(r'data_HC\Slice1_1.png')
+    scaled_image_1=cv2.imread(r'data_HC\Slice1_1.png',0)
 
