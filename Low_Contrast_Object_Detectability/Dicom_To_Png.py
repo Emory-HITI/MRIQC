@@ -22,7 +22,7 @@ try:
     #cv2.destroyAllWindows()
 except:
     scaled_image=cv2.imread(r"data\Slice11_1.png",0)
-    print(True)
+    #print(True)
 
 
 # In[ ]:

@@ -20,12 +20,12 @@
 To deploy this project run
 
 ```bash
-  $ python Shanbhag_Threshold.py
-  $ python Connected_Objects_Count.py 
-  $ python RC_Object_Count.py
-  $ python Row_Column_Extraction.py
-  $ python Dicom_To_Png_HC.py 
-  $ python High_Contrast_Spatial_Resolution_Complete_Pipeline.py 
+  $ python3 Shanbhag_Threshold.py
+  $ python3 Connected_Objects_Count.py 
+  $ python3 RC_Object_Count.py
+  $ python3 Row_Column_Extraction.py
+  $ python3 Dicom_To_Png_HC.py 
+  $ python3 High_Contrast_Spatial_Resolution_Complete_Pipeline.py 
 ```
 All .py files should be run in the same order, as the output of one gets passed to another.
 
@@ -34,8 +34,10 @@ OR
 run this single file:-
 
 ```bash 
-  $python .\run_module.py
+  $ python3 run_module.py
 ```
+
+In the Dicom_to_Png_HC.py file, the code currently uses a Try-Except block to input from a .dcm file and converts that into .png format, but if someone doesn't have access to a .dcm file, the code can also directly take input from a .png file.
 
 
 
