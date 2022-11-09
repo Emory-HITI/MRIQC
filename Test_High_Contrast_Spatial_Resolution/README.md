@@ -29,6 +29,8 @@ To deploy this project run
 ```
 All .py files should be run in the same order, as the output of one gets passed to another.
 
+OR
+
 run this single file:-
 
 ```bash 
