@@ -1,20 +1,38 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[ ]:
+# In[6]:
 
 
 import numpy as np
 import pydicom as dicom
 import matplotlib.pyplot as plt
 import cv2
-image_path=r'data\1.2.840.113619.2.495.11565861.612164.25601.1652700575.109.dcm'
-ds=dicom.dcmread(image_path)
-data=ds.pixel_array
-new_image = ds.pixel_array.astype(float)
-scaled_image = (np.maximum(new_image, 0) / new_image.max()) * 255.0
-scaled_image = np.uint8(scaled_image)
-#cv2.imshow("Image",scaled_image)
-#cv2.waitKey(0)
-#cv2.destroyAllWindows()
+
+
+try:
+    image_path=r'data\1.2.840.113619.2.495.11565861.612164.25601.1652700575.109.dcm'
+    ds=dicom.dcmread(image_path)
+    data=ds.pixel_array
+    new_image = ds.pixel_array.astype(float)
+    scaled_image = (np.maximum(new_image, 0) / new_image.max()) * 255.0
+    scaled_image = np.uint8(scaled_image_1)
+    #cv2.imshow("Image",scaled_image_1)
+    #cv2.waitKey(0)
+    #cv2.destroyAllWindows()
+except:
+    scaled_image=cv2.imread(r"data\Slice11_1.png",0)
+    print(True)
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
 
