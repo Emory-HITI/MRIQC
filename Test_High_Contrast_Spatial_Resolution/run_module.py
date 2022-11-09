@@ -1,0 +1,6 @@
+exec(open("Shanbhag_Threshold.py").read())
+exec(open("Connected_Objects_Count.py").read())
+exec(open("RC_Object_Count.py").read())
+exec(open("Row_Column_Extraction.py").read())
+exec(open("Dicom_To_Png_HC.py").read())
+exec(open("High_Contrast_Spatial_Resolution_Complete_Pipeline.py").read())
