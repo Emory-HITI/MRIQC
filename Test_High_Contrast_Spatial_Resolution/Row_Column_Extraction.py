@@ -567,6 +567,8 @@ def row_col_extraction(outline_image,localized_array,threshold_image,array_numbe
         sheet1.write(6, 1, Count_list[5])
         sheet1.write(7, 1, Count_list[6])
         sheet1.write(8, 1, Count_list[7])
+        arr1_dup=dup_localized_array.copy()
+        cv2.imwrite("arr1.png",dup_localized_array)
     elif (array_number==2):
         sheet1.write(1, 2, Count_list[0])
         sheet1.write(2, 2, Count_list[1])
@@ -576,6 +578,8 @@ def row_col_extraction(outline_image,localized_array,threshold_image,array_numbe
         sheet1.write(6, 2, Count_list[5])
         sheet1.write(7, 2, Count_list[6])
         sheet1.write(8, 2, Count_list[7])
+        arr2_dup=dup_localized_array.copy()
+        cv2.imwrite("arr2.png",dup_localized_array)
     elif (array_number==3):
         sheet1.write(1, 3, Count_list[0])
         sheet1.write(2, 3, Count_list[1])
@@ -585,6 +589,8 @@ def row_col_extraction(outline_image,localized_array,threshold_image,array_numbe
         sheet1.write(6, 3, Count_list[5])
         sheet1.write(7, 3, Count_list[6])
         sheet1.write(8, 3, Count_list[7])
+        arr3_dup=dup_localized_array.copy()
+        cv2.imwrite("arr3.png",dup_localized_array)
         
     wb.save('xlwt example8.xls')    
                                                                                  

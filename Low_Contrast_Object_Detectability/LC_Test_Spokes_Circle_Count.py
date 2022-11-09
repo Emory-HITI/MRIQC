@@ -306,4 +306,5 @@ for i in range(len(Numbers_spokes_list)):
 cv2.imshow("Contour_image",dup_image)
 cv2.waitKey()
 cv2.destroyAllWindows()
+cv2.imwrite("Contour_overlayed_image.png",dup_image) ### saving the image
 

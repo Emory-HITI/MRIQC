@@ -8,6 +8,8 @@
 ##https://github.com/imagej/ImageJ/blob/master/ij/process/AutoThresholder.java
 import numpy as np
 import math
+import sys
+sys.setrecursionlimit(10**6)
 def Shanbhag(hist):
     threshold=0
     ih=0

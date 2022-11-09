@@ -35,10 +35,18 @@ of distinguishable circles in all ten spokes.
 To deploy this project run
 
 ```bash
-  $ python3 Dicom_To_Png.py
-  $ python3 Localization_Low_Contrast_Object_Detectability.py
-  $ python3 Spokes_Crop_All_Slices.py
-  $ python3 LC_Test_Spokes_Circle_Count.py
+  $ python Dicom_To_Png.py
+  $ python Localization_Low_Contrast_Object_Detectability.py
+  $ python Spokes_Crop_All_Slices.py
+  $ python LC_Test_Spokes_Circle_Count.py
+```
+All .py files should be run in the same order, as the output of one gets passed to another.
+
+OR
+
+run this single file:-
+
+```bash 
+  $python .\run_module.py
 ```
 
-All .py files should be run in the same order, as the output of one gets passed to another.

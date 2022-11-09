@@ -20,13 +20,20 @@
 To deploy this project run
 
 ```bash
-  $ python3 Shanbhag_Threshold.py
-  $ python3 Connected_Objects_Count.py 
-  $ python3 RC_Object_Count.py
-  $ python3 Row_Column_Extraction.py
-  $ python3 Dicom_To_Png_HC.py 
-  $ python3 High_Contrast_Spatial_Resolution_Complete_Pipeline.py 
+  $ python Shanbhag_Threshold.py
+  $ python Connected_Objects_Count.py 
+  $ python RC_Object_Count.py
+  $ python Row_Column_Extraction.py
+  $ python Dicom_To_Png_HC.py 
+  $ python High_Contrast_Spatial_Resolution_Complete_Pipeline.py 
 ```
 All .py files should be run in the same order, as the output of one gets passed to another.
+
+run this single file:-
+
+```bash 
+  $python .\run_module.py
+```
+
 
 
